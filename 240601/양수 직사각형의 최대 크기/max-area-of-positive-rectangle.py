@@ -1,4 +1,4 @@
-from itertools import combinations
+from itertools import combinations_with_replacement
 def check(big_row, small_row, big_col, small_col, matrix):
     for i in range(small_row, big_row + 1):
         for j in range(small_col, big_col + 1):
@@ -14,8 +14,8 @@ for _ in range(n):
 
 ans = 0
 
-row_comb = list(combinations([i for i in range(n)], 2))
-col_comb = list(combinations([i for i in range(m)], 2))
+row_comb = list(combinations_with_replacement([i for i in range(n)], 2))
+col_comb = list(combinations_with_replacement([i for i in range(m)], 2))
 
 for i in row_comb:
     big_row   = max(i)
