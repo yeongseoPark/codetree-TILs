@@ -29,4 +29,4 @@ for i in row_comb:
         if check(big_row, small_row, big_col, small_col, matrix):
             ans = max(ans, row_len * col_len)
 
-print(ans)
+print(ans if ans > 0 else -1)
