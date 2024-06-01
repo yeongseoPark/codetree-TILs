@@ -2,7 +2,7 @@ from itertools import combinations
 def check(big_row, small_row, big_col, small_col, matrix):
     for i in range(small_row, big_row + 1):
         for j in range(small_col, big_col + 1):
-            if int(matrix[i][j]) <= 0:
+            if int(matrix[i][j]) < 0:
                 return False
     return True
 
