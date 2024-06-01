@@ -2,7 +2,7 @@ from itertools import combinations
 def check(big_row, small_row, big_col, small_col, matrix):
     for i in range(small_row, big_row + 1):
         for j in range(small_col, big_col + 1):
-            if int(matrix[i][j]) < 0:
+            if int(matrix[i][j]) <= 0:
                 return False
     return True
 
@@ -29,4 +29,7 @@ for i in row_comb:
         if check(big_row, small_row, big_col, small_col, matrix):
             ans = max(ans, row_len * col_len)
 
-print(ans if ans > 0 else -1)
+if ans > 0:
+    print(ans)
+else:
+    print(-1)
