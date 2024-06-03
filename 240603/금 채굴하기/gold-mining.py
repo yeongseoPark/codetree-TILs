@@ -16,8 +16,8 @@ for k in range(n+1): # 가능한 k의 범위는 n을 넘어가지 않음
             cnt = 0
             revenue = 0
             # 마름모 안에 들 수 있는 후보군들 중, 실제 마름모 안에 들고 채굴이 가능한 경우
-            for y in range(i - k, i + k):
-                for x in range(j - k, j + k):
+            for y in range(i - k, i + k + 1):
+                for x in range(j - k, j + k + 1):
                     if 0 <= x < n and 0 <= y < n and in_dia(i, j, x, y, k):
                         if matrix[x][y] == 1:
                             cnt += 1
