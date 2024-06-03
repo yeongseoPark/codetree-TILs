@@ -30,7 +30,7 @@ def I(i, j):
     if j - 2 >= 0:
         cur = max(cur, matrix[i][j] + matrix[i][j-1] + matrix[i][j-2])
     
-    if i + 2 < m:
+    if i + 2 < n:
         cur = max(cur, matrix[i][j] + matrix[i+1][j] + matrix[i+2][j])
     
     if i - 2 >= 0:
