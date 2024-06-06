@@ -36,7 +36,7 @@ def second_rec(row_start, row_end, col_start, col_end):
 
                         tmp = max(tmp, mine) 
     
-    return 0 if tmp == float('-inf') else tmp
+    return tmp
 
 ans = float('-inf')
 for i in range(n):
@@ -50,6 +50,9 @@ for i in range(n):
                     mine    = get_sum(row_range[0], row_range[1], col_range[0], col_range[1])
                     another = second_rec(row_range[0], row_range[1], col_range[0], col_range[1])
 
-                    ans = max(ans, mine + another) 
+                    if another == float('-inf'):
+                        ans = max(ans, mine)
+                    else:
+                        ans = max(ans, mine + another) 
 
 print(ans)
