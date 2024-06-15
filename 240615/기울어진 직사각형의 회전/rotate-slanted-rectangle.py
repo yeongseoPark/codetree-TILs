@@ -21,16 +21,16 @@ def rotate(row, col, m1, m2, m3, m4, direction):
     if direction: # 시계 방향 회전
         temp = grid[row][col] 
 
-        for i in range(m1-1):
+        for i in range(m1):
             grid[row + (i * right_up[0])][col + (i * right_up[1])] = grid[row + ((i+1) * right_up[0])][col + ((i+1) * right_up[1])] 
 
-        for i in range(m2-1):
+        for i in range(m2):
             grid[right_row + (i * left_up[0])][right_col * (i * left_up[1])] = grid[right_row + ((i+1) * left_up[0])][right_col * ((i+1) * left_up[1])]
 
-        for i in range(m3-1):
+        for i in range(m3):
             grid[top_row + (i * left_down[0])][top_col + (i * left_down[1])] = grid[top_row + ((i+1) * left_down[0])][top_col + ((i+1) * left_down[1])]
 
-        for i in range(m4-1):
+        for i in range(m4):
             grid[left_row + (i * right_down[0])][left_col + (i * right_down[1])] = grid[left_row + ((i+1) * right_down[0])][left_col + ((i+1) * right_down[1])]
         
         grid[row-1][col-1] = temp
@@ -38,16 +38,16 @@ def rotate(row, col, m1, m2, m3, m4, direction):
     else: # 반시계 방향 회전
         temp = grid[row][col]
 
-        for i in range(m4-1):
+        for i in range(m4):
            grid[row+ (i * left_up[0])][col+ (i * left_up[1])] = grid[row+ ((i+1) * left_up[0])][col+ ((i+1) * left_up[1])]
 
-        for i in range(m3-1):
+        for i in range(m3):
             grid[left_row + (i * right_up[0])][left_col + (i * right_up[1])] = grid[left_row + ((i+1) * right_up[0])][left_col + ((i+1) * right_up[1])]
         
-        for i in range(m2-1):
+        for i in range(m2):
             grid[top_row + (i * right_down[0])][top_col + (i * right_down[1])] = grid[top_row + ((i+1) * right_down[0])][top_col + ((i+1) * right_down[1])] 
         
-        for i in range(m1-1):
+        for i in range(m1):
             grid[right_row + (i * left_down[0])][right_col + (i * left_down[1])] = grid[right_row + ((i+1) * left_down[0])][right_col + ((i+1) * left_down[1])]
 
         grid[row-1][col+1] = temp    
