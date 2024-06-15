@@ -28,7 +28,7 @@ def rotate(x, y, k, l, direction):
             temp[i][j] = grid[i][j]
     
     # 2 회전
-    for dx, dy, move_num in zip(move_nums):
+    for dx, dy, move_num in zip(dxs, dys, move_nums):
         for _ in range(move_num):
             nx, ny = x + dx, y + dy
             temp[nx][ny] = grid[x][y]
