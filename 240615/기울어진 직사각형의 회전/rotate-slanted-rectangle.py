@@ -19,44 +19,42 @@ def rotate(row, col, m1, m2, m3, m4, direction):
     left_row, left_col     = top_row + (m3-1) * left_down[0], top_col + (m3-1) * left_down[1]
 
     if direction: # 시계 방향 회전
-        temp = grid[row][col] 
+        temp = grid[bottom_row][bottom_col]
 
-        for i in range(m1):
-            grid[row + (i * right_up[0])][col + (i * right_up[1])] = grid[row + ((i+1) * right_up[0])][col + ((i+1) * right_up[1])] 
+        for i in range(m1-1):
+            grid[bottom_row + (i * right_up[0])][bottom_col + (i * right_up[1])] = grid[bottom_row + ((i+1) * right_up[0])][bottom_col + ((i+1) * right_up[1])] 
 
-        for i in range(m2):
-            grid[right_row + (i * left_up[0])][right_col * (i * left_up[1])] = grid[right_row + ((i+1) * left_up[0])][right_col * ((i+1) * left_up[1])]
+        for i in range(m2-1):
+            grid[right_row + (i * left_up[0])][right_col + (i * left_up[1])] = grid[right_row + ((i+1) * left_up[0])][right_col + ((i+1) * left_up[1])]
 
-        for i in range(m3):
+        for i in range(m3-1):
             grid[top_row + (i * left_down[0])][top_col + (i * left_down[1])] = grid[top_row + ((i+1) * left_down[0])][top_col + ((i+1) * left_down[1])]
 
-        for i in range(m4):
+        for i in range(m4-1):
             grid[left_row + (i * right_down[0])][left_col + (i * right_down[1])] = grid[left_row + ((i+1) * right_down[0])][left_col + ((i+1) * right_down[1])]
         
-        grid[row-1][col-1] = temp
+        grid[left_row + ((m4-1) * right_down[0])][left_col + ((m4-1) * right_down[1])] = temp
 
     else: # 반시계 방향 회전
-        temp = grid[row][col]
+        temp = grid[bottom_row][bottom_col]
 
-        for i in range(m4):
-           grid[row+ (i * left_up[0])][col+ (i * left_up[1])] = grid[row+ ((i+1) * left_up[0])][col+ ((i+1) * left_up[1])]
+        for i in range(m4-1):
+            grid[bottom_row + (i * right_down[0])][bottom_col + (i * right_down[1])] = grid[bottom_row + ((i+1) * right_down[0])][bottom_col + ((i+1) * right_down[1])]
 
-        for i in range(m3):
-            grid[left_row + (i * right_up[0])][left_col + (i * right_up[1])] = grid[left_row + ((i+1) * right_up[0])][left_col + ((i+1) * right_up[1])]
+        for i in range(m3-1):
+            grid[left_row + (i * left_down[0])][left_col + (i * left_down[1])] = grid[left_row + ((i+1) * left_down[0])][left_col + ((i+1) * left_down[1])]
         
-        for i in range(m2):
-            grid[top_row + (i * right_down[0])][top_col + (i * right_down[1])] = grid[top_row + ((i+1) * right_down[0])][top_col + ((i+1) * right_down[1])] 
+        for i in range(m2-1):
+            grid[top_row + (i * left_up[0])][top_col + (i * left_up[1])] = grid[top_row + ((i+1) * left_up[0])][top_col + ((i+1) * left_up[1])] 
         
-        for i in range(m1):
-            grid[right_row + (i * left_down[0])][right_col + (i * left_down[1])] = grid[right_row + ((i+1) * left_down[0])][right_col + ((i+1) * left_down[1])]
+        for i in range(m1-1):
+            grid[right_row + (i * right_up[0])][right_col + (i * right_up[1])] = grid[right_row + ((i+1) * right_up[0])][right_col + ((i+1) * right_up[1])]
 
-        grid[row-1][col+1] = temp    
-
-
+        grid[right_row + ((m1-1) * right_up[0])][right_col + ((m1-1) * right_up[1])] = temp
 
 for row in range(1, n+1):
     cur_list = list(map(int, input().split()))
-    for col, num in enumerate(cur_list, start = 1):
+    for col, num in enumerate(cur_list, start=1):
         grid[row][col] = num
 
 row, col, m1, m2, m3, m4, direction = map(int, input().split())
