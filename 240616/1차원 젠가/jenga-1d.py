@@ -4,7 +4,7 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-arr = [0] + arr[::-1]
+arr = [0] + arr
 first  = tuple(map(int, input().split()))
 second = tuple(map(int, input().split()))
 
@@ -20,6 +20,7 @@ def reduce(start, end):
 arr = reduce(first[0], first[1])
 arr = reduce(second[0], second[1])
 
+
 print(len(arr) -1)
-for i in range(len(arr)-1, 0, -1):
+for i in range(1, len(arr)):
     print(arr[i])
