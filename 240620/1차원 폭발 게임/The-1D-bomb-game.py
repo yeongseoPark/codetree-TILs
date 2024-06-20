@@ -3,7 +3,7 @@ n, m = map(int, input().split())
 numbers = [int(input()) for _ in range(n)]
 
 def get_end_idx_of_explosion(curr_idx, curr_num):
-    for end_idx in range(len(numbers)):
+    for end_idx in range(curr_idx, len(numbers)):
         if numbers[end_idx] != curr_num:
             return end_idx - 1
         
