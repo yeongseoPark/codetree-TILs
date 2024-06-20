@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 
-arr = [int(input) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
 def get_end_idx_of_explosion(start_idx, curr_num):
     for end_idx in range(start_idx+1, len(numbers)):
