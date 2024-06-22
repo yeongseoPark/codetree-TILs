@@ -62,7 +62,7 @@ def drop():
             # 가장 최근에 관찰한 숫자와 현재 숫자가 다르다면
             # 최근에 관찰한 숫자를 실제 떨어뜨려주고, keep 값을 갱신해줍니다.
             else:
-                next_grid[next_row][j] = grid[i][j]
+                next_grid[next_row][j] = keep_num
                 keep_num = grid[i][j]
                 next_row -= 1
         
