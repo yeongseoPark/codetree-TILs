@@ -22,7 +22,7 @@ def rotate():
     # 90' 회전합니다.
     for i in range(n):
         for j in range(n):
-            next_grid[i][j] = grid[n-j-1][j]
+            next_grid[i][j] = grid[n-j-1][i]
     
     # next_grid를 grid에 옮겨줍니다.
     for i in range(n):
