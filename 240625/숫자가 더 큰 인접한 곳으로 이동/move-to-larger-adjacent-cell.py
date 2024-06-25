@@ -31,10 +31,11 @@ while True:
                 max_pos = (nr , nc)
                 moved = True
 
-    r = max_pos[0]
-    c = max_pos[1]
     if not moved:
         break
+    
+    r = max_pos[0]
+    c = max_pos[1]
 
 for i in movement:
     print(i, end = " ")
