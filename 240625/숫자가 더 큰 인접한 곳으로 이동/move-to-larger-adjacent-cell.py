@@ -16,7 +16,7 @@ movement = []
 while True:
     moved = False
 
-    dr = [0, 0, -1, 1]
+    dr = [0, 0, 1, -1]
     dc = [1, -1, 0, 0]
 
     movement.append(grid[r][c])
