@@ -43,13 +43,13 @@ def move(r, c, k): # K는 현재 방향
     cnt = 1 
     nk = graph[r][c]
     k = cursor(nk, k)
-    nr, nc = r + dr[k] , c + dc[k]
-    while 0 <= nr < n and 0 <= nc < n:
+    r, c = r + dr[k] , c + dc[k]
+    while 0 <= r < n and 0 <= c < n:
         cnt += 1
-        nk = graph[nr][nc]
+        nk = graph[r][c]
         k = cursor(nk, k)
-        nr += dr[k] 
-        nc += dc[k]
+        r += dr[k] 
+        c += dc[k]
     
     return cnt + 1 
 
