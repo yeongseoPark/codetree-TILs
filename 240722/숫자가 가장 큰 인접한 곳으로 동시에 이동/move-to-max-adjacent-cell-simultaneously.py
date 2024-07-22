@@ -27,18 +27,20 @@ dy = [0, 0, -1, 1]
 def in_range(r, c):
     return 1 <= r <= n and 1 <= c <= n 
 
-
 for _ in range(t):
-    for r in range(n+1):
-        for c in range(n+1):
+    for r in range(1, n+1):
+        for c in range(1, n+1):
             if count[r][c] != 0:
                 cur_val = grid[r][c]
+                moved = False
                 for i in range(4):
-                    if in_range(r + dx[i], c + dy[i]) and grid[r + dx[i]][c + dy[i]] > cur_val:
-                        nr = r + dx[i]
-                        nc = c + dx[i]
-        
-                next_count[nr][nc] += 1
+                    nr = r + dx[i]
+                    nc = c + dy[i]
+                    if in_range(nr, nc) and grid[nr][nc] > cur_val:
+                        next_count[nr][nc] += count[r][c]
+                        moved = True
+                if not moved:
+                    next_count[r][c] += count[r][c]
                 
     for i in range(n+1):
         for j in range(n+1):
