@@ -26,7 +26,7 @@ def bomb(x, y, b_type):
     ]
 
     for i in range(5):
-        dx, dy = x + bomb_shapes[b_type][i]
+        dx, dy = bomb_shapes[b_type][i]
         nx, ny = x + dx, y + dy
         if in_range(nx, ny):
             bombed[nx][ny] = True
@@ -55,8 +55,9 @@ def calc():
 def find_max_area(cnt):
     global ans
 
-    if cnt == len(post):
+    if cnt == len(bomb_pos):
         ans = max(ans, calc())
+        return
 
     for i in range(4):
         x, y = bomb_pos[cnt]
